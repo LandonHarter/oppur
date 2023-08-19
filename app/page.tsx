@@ -6,11 +6,6 @@ import React, { useContext } from 'react'
 import { auth } from "./backend/firebase";
 import UserContext from "./context/UserContext";
 
-export const metadata: Metadata = basicMetadata({
-  title: "Workage",
-  localPath: "/",
-});
-
 export default function Home() {
   const user = useContext(UserContext);
 
