@@ -80,4 +80,6 @@
   --text900: #121212;
 }
 
-body {}
+body {
+  background-color: var(--bg500);
+}

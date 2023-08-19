@@ -1,5 +1,6 @@
 import { basicMetadata } from './backend/seo'
 import Header from './components/header/header';
+import UserContextProvider from './context/context';
 import './globals.css'
 
 export const metadata = basicMetadata({
@@ -15,8 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        {children}
+        <UserContextProvider>
+          <Header />
+          {children}
+        </UserContextProvider>
       </body>
     </html>
   )

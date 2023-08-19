@@ -9,6 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: "https://workage.vercel.app/login",
             lastModified: new Date()
-        }
+        },
     ];
 }
