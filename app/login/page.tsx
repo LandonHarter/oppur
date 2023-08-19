@@ -60,7 +60,7 @@ export default function LoginPage() {
                                         }}
                                     >
                                         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px' }} className={styles.provider_button}>
-                                            <Image src="/public/google-icon.png" width={23} height={23} alt="Google" />
+                                            <Image src="/google-icon.png" width={23} height={23} alt="Google" />
                                             <p
                                                 style={{
                                                     fontFamily: 'Inter Bold',
