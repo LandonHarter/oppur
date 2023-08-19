@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'Inter Black';
+    src: url('/fonts/Inter-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Inter ExtraBold';
+    src: url('/fonts/Inter-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Inter Bold';
+    src: url('/fonts/Inter-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Inter Semi-Bold';
+    src: url('/fonts/Inter-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Inter Medium';
+    src: url('/fonts/Inter-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Inter Regular';
+    src: url('/fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Inter Light';
+    src: url('/fonts/Inter-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Reset default styles */
+  body, h1, h2, p, ul, li, a {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    p {
+      color: #7B7B7B;
+      font-family: 'Inter Regular';
+      font-size: 17px;
+    }
+  
+    h1 {
+      margin-left: -1.5px;
+      color: #323649;
+      font-size: 40px;
+      font-family: 'Inter Bold';
+      letter-spacing: -0.8px;
+    }
+  
+    h2 {
+      color: #323649;
+      font-family: 'Inter Bold';
+      font-size: 34.615px;
+    }
+  
+    h3 {
+      color: #323649;
+      font-family: 'Inter Bold';
+      font-size: 20px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+  
+    .mobile {
+      background-color: #F5F5F5;
+      display: block;
+      padding-left: 10vw;
+      padding-right: 10vw;
+      padding-top: 5vh;
+      min-height: 95vh;
+    }
+    
+    .desktop {
+      display: none;
+    }
+
+    .wrapper {
+        padding: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+
+    .flex {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .flex h2 {
+        width: 80vw;
+        text-align: center;
+    }
+
+    .flex p {
+        width: 80vw;
+        text-align: center;
+    }
+
+    .flex .top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .flex .top-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .flex .middle {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .flex .input-box {
+        width: 80vw;
+        background: #E0E0E0;
+        border-radius: 12px;
+    }
+
+    .input-box p {
+        color: #323649;
+        text-align: left;
+        margin-left: 16px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .flex .sign-up {
+        width: 80vw;
+        border-width: 0px;
+        border-radius: 13px;
+        background: #4A83FF;
+        box-shadow: 4px 4px 12px 0px rgba(0, 51, 19, 0.20);
+    }
+    
+    .sign-up p {
+        color: #F5F5F5;
+        font-family: 'Inter Bold';
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .card {
+      width: 80vw;
+      height: fit-content;
+      border-radius: 12px;
+      background: #FFF;
+      box-shadow: 7px 7px 29px 0px rgba(0, 40, 15, 0.08);
+    }
+  
+    .card .title {
+      margin-top: 30px;
+      margin-left: 30px;
+      margin-right: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+  
+    @media only screen and (min-width: 600px) {
+      .mobile {
+        display: none;
+      }
+  
+      .desktop {
+        display: block;
+      }
+    }
