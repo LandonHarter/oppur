@@ -55,11 +55,12 @@
   }
   
   /* Reset default styles */
-  body, h1, h2, p, ul, li, a {
+    .reset-styles {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
   
     p {
       color: #7B7B7B;
