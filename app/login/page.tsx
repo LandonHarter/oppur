@@ -42,21 +42,11 @@ export default function LoginPage() {
                                             width: '80vw',
                                         }}
                                     >
-<<<<<<< HEAD
                                         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px' }} className={styles.provider_button}>
                                             <Image src="/public/google-icon.png" width={23} height={23} alt="Google" />
                                             <p
                                                 style={{
                                                     fontFamily: 'Inter Bold',
-=======
-                                        <div style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
-                                            <Image src="/google-icon.png" width={23} height={23} alt="Google" />
-                                            <p
-                                                style={{
-                                                    fontFamily: 'Inter',
-                                                    fontWeight:700,
-                                                    color: '#323649',
->>>>>>> 7cb6925fce5afe078f0ea13e3600728a8e77c734
                                                     width: 'fit-content',
                                                 }}
                                             >
@@ -68,11 +58,7 @@ export default function LoginPage() {
                             </button>
                             <span
                                 style={{
-<<<<<<< HEAD
                                     fontFamily: 'Inter Medium',
-=======
-                                    fontFamily: 'Inter',
->>>>>>> 7cb6925fce5afe078f0ea13e3600728a8e77c734
                                     fontSize: '15px',
                                     color: '#7b7b7b',
                                     textAlign: 'center',
