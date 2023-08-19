@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function LoginPage() {
     return (
@@ -7,14 +9,14 @@ export default function LoginPage() {
             <header>
                 <nav>
                     <a href="/">
-                        <img src="/public/left-arrow.svg" alt="Back" />
+                        <Image src="/left-arrow.svg" alt="Back" width={50} height={50} />
                     </a>
                 </nav>
             </header>
             <div className={styles.wrapper}>
                 <div className={styles.flex}>
                     <div className={styles.top}>
-                        <img src="/public/log-in.svg" width="280px" alt="Login" />
+                        <Image src="/public/log-in.svg" width={280} height={280} alt="Login" />
                         <div className={styles.topBottom}>
                             <h2>Welcome Back.</h2>
                             <p>Log in to Concussify!</p>
@@ -40,7 +42,7 @@ export default function LoginPage() {
                                         }}
                                     >
                                         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
-                                            <img src="/public/google-icon.png" height="23px" alt="Google" />
+                                            <Image src="/public/google-icon.png" height={23} alt="Google" />
                                             <p
                                                 style={{
                                                     fontFamily: 'Inter Bold',
@@ -62,13 +64,12 @@ export default function LoginPage() {
                                     textAlign: 'center',
                                 }}
                             >
-                                Don't have an account? <a href="/pages/sign-up">Sign Up</a>
+                                Don&apos;t have an account? <Link href="/register">Sign Up</Link>
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
-            <script src="/main.js"></script>
         </div>
     );
 }
