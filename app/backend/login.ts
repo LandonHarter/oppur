@@ -5,7 +5,14 @@ import { collection, doc, getDoc, setDoc } from "firebase/firestore";
 
 export async function signInWithGoogle() {
     const provider = new GoogleAuthProvider();
-    const user = await signInWithPopup(auth, provider);
+    const user: UserCredential | null = await new Promise((resolve, reject) => {
+        signInWithPopup(auth, provider).then((user) => {
+            resolve(user);
+        }).catch((error) => {
+            resolve(null);
+        });
+    });
+    if (!user) return null;
     const loginData = getAdditionalUserInfo(user);
 
     if (loginData?.isNewUser) {

@@ -1,11 +1,22 @@
 'use client'
 
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './styles.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import UserContext from '@/context/UserContext';
+import { signInWithGoogle } from '@/backend/login';
+import LoadingContext from '@/context/LoadingContext';
 
 export default function LoginPage() {
+    const user = useContext(UserContext);
+    const { startLoading, stopLoading } = useContext(LoadingContext);
+
+    if (user) {
+        window.location.href = '/';
+        return;
+    }
+
     return (
         <div className={styles.mobile}>
             <header>
@@ -28,8 +39,14 @@ export default function LoginPage() {
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                             <button
                                 className={styles.card}
-                                onClick={() => {
-                                    window.location.href = 'http://127.0.0.1:8787/v1/auth/google';
+                                onClick={async () => {
+                                    startLoading();
+                                    const user = await signInWithGoogle();
+                                    if (user) {
+                                        window.location.href = '/';
+                                    } else {
+                                        stopLoading();
+                                    }
                                 }}
                             >
                                 <div className={styles.cardTitle}>

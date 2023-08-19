@@ -2,8 +2,11 @@
 
 import useCurrentUser from "@/hooks/useCurrentUser";
 import UserContext from "./UserContext";
+import LoadingContext from "./LoadingContext";
+import { useState } from "react";
+import Loading from "@/components/loading/loading";
 
-export default function UserContextProvider(
+export function UserContextProvider(
     { children }: { children: React.ReactNode }
 ) {
     const user = useCurrentUser();
@@ -12,5 +15,26 @@ export default function UserContextProvider(
         <UserContext.Provider value={user}>
             {children}
         </UserContext.Provider>
+    );
+}
+
+export function LoadingContextProvider(
+    { children }: { children: React.ReactNode }
+) {
+    const [loading, setLoading] = useState(false);
+
+    function startLoading() {
+        setLoading(true);
+    }
+
+    function stopLoading() {
+        setLoading(false);
+    }
+
+    if (loading) return <Loading />;
+    return (
+        <LoadingContext.Provider value={{ startLoading, stopLoading }}>
+            {children}
+        </LoadingContext.Provider>
     );
 }
