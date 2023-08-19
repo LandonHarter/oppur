@@ -1,10 +1,17 @@
+<<<<<<< HEAD
+=======
+
+  
+  /* Reset default styles */
+/* styles.module.css */
+>>>>>>> e326b798d87e48ab4b21ccc12f733b42708c18e7
     .mobile {
       background-color: #F5F5F5;
       display: block;
       padding-left: 10vw;
       padding-right: 10vw;
       padding-top: 5vh;
-      min-height: 95vh;
+      min-height: 100vh;
     }
 
     .desktop {
