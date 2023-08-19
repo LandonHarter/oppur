@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-=======
 
   
   /* Reset default styles */
 /* styles.module.css */
->>>>>>> e326b798d87e48ab4b21ccc12f733b42708c18e7
     .mobile {
-      background-color: #F5F5F5;
+      background-color: #0D0D0D;
       display: block;
       padding-left: 10vw;
       padding-right: 10vw;
@@ -90,7 +87,8 @@
 
     .sign-up p {
       color: #F5F5F5;
-      font-family: 'Inter Bold';
+      font-family: 'Inter';
+      font-weight: 700;
       margin-top: 16px;
       margin-bottom: 16px;
     }
@@ -99,7 +97,7 @@
       width: 80vw;
       height: fit-content;
       border-radius: 12px;
-      background: #FFF;
+      background: #DBDBDB;
       box-shadow: 7px 7px 29px 0px rgba(0, 40, 15, 0.08);
     }
 

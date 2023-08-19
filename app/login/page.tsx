@@ -11,14 +11,14 @@ export default function LoginPage() {
             <header>
                 <nav>
                     <a href="/">
-                        <Image src="/left-arrow.svg" alt="Back" width={50} height={50} />
+                        <Image src="/left-arrow.svg" alt="Back" width={30} height={30} />
                     </a>
                 </nav>
             </header>
             <div className={styles.wrapper}>
                 <div className={styles.flex}>
                     <div className={styles.top}>
-                        <Image src="/public/log-in.svg" width={280} height={280} alt="Login" />
+                        <Image src="/log-in.svg" width={280} height={280} alt="Login" />
                         <div className={styles.topBottom}>
                             <h2>Welcome Back.</h2>
                             <p>Log in to Concussify!</p>
@@ -44,10 +44,11 @@ export default function LoginPage() {
                                         }}
                                     >
                                         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
-                                            <Image src="/public/google-icon.png" height={23} alt="Google" />
+                                            <Image src="/google-icon.png" width={23} height={23} alt="Google" />
                                             <p
                                                 style={{
-                                                    fontFamily: 'Inter Bold',
+                                                    fontFamily: 'Inter',
+                                                    fontWeight:700,
                                                     color: '#323649',
                                                     width: 'fit-content',
                                                 }}
@@ -60,13 +61,13 @@ export default function LoginPage() {
                             </button>
                             <span
                                 style={{
-                                    fontFamily: 'Inter Regular',
+                                    fontFamily: 'Inter',
                                     fontSize: '15px',
                                     color: '#7b7b7b',
                                     textAlign: 'center',
                                 }}
                             >
-                                Don&apos;t have an account? <Link href="/register">Sign Up</Link>
+                                Don&apos;t have an account? <Link href="/register"><u>Sign Up</u></Link>
                             </span>
                         </div>
                     </div>
