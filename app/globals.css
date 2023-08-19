@@ -3,25 +3,81 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --p50: #f1eefd;
+  --p100: #e3defa;
+  --p150: #d5cdf7;
+  --p200: #c8bdf4;
+  --p250: #bbadf0;
+  --p300: #ae9cec;
+  --p350: #a28be8;
+  --p400: #967ae3;
+  --p450: #8a69de;
+  --p500: #7f56d9;
+  --p550: #6e4abc;
+  --p600: #5d3ea1;
+  --p650: #4c3286;
+  --p700: #3c276c;
+  --p750: #2d1c53;
+  --p800: #1f123b;
+  --p850: #110825;
+  --p900: #060211;
+
+  --s50: #fef7ed;
+  --s100: #feefda;
+  --s150: #fde6c8;
+  --s200: #fcdeb5;
+  --s250: #fbd5a1;
+  --s300: #f9cd8e;
+  --s350: #f8c479;
+  --s400: #f6bb62;
+  --s450: #f5b248;
+  --s500: #f3a923;
+  --s550: #d3921d;
+  --s600: #b47c17;
+  --s650: #976711;
+  --s700: #7a530c;
+  --s750: #5e3f07;
+  --s800: #442c04;
+  --s850: #2b1b01;
+  --s900: #140a00;
+
+  --bg50: #e6e6e6;
+  --bg100: #cdcdcd;
+  --bg150: #b5b5b5;
+  --bg200: #9d9d9d;
+  --bg250: #868686;
+  --bg300: #707070;
+  --bg350: #5a5a5a;
+  --bg400: #454545;
+  --bg450: #323232;
+  --bg500: #1f1f1f;
+  --bg550: #191919;
+  --bg600: #141414;
+  --bg650: #0f0f0f;
+  --bg700: #0a0a0a;
+  --bg750: #060606;
+  --bg800: #030303;
+  --bg850: #010101;
+  --bg900: #000000;
+
+  --text50: #fcfcfc;
+  --text100: #f9f9f9;
+  --text150: #f6f6f6;
+  --text200: #f3f3f3;
+  --text250: #f0f0f0;
+  --text300: #eeeeee;
+  --text350: #ebebeb;
+  --text400: #e8e8e8;
+  --text450: #e5e5e5;
+  --text500: #e2e2e2;
+  --text550: #c4c4c4;
+  --text600: #a8a8a8;
+  --text650: #8c8c8c;
+  --text700: #717171;
+  --text750: #575757;
+  --text800: #3e3e3e;
+  --text850: #272727;
+  --text900: #121212;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+body {}

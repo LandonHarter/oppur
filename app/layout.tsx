@@ -1,9 +1,6 @@
 import { basicMetadata } from './backend/seo'
 import Header from './components/header/header';
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = basicMetadata({
   title: 'Workage',
@@ -17,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Header />
         {children}
       </body>
