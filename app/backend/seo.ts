@@ -32,7 +32,7 @@ export const basicMetadata = (options: { title?: string, description?: string, l
             url: `https://workage.vercel.app${options.localPath || ''}`,
             type: 'website',
             images: ['https://workage.vercel.app/icon.png'],
-            siteName: 'Blitz',
+            siteName: 'Workage',
         },
     };
 };
