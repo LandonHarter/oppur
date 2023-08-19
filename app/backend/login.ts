@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, UserCredential, getAdditionalUserInfo, signInWithPopup, User as FirebaseUser } from "firebase/auth"
+import { GoogleAuthProvider, UserCredential, getAdditionalUserInfo, signInWithPopup, User as FirebaseUser, createUserWithEmailAndPassword } from "firebase/auth"
 import { auth, firestore } from "./firebase";
 import { User } from "./types";
 import { collection, doc, getDoc, setDoc } from "firebase/firestore";
@@ -12,6 +12,16 @@ export async function signInWithGoogle() {
         return await setUserData(user);
     }
 
+    return await getUserData(user.user);
+}
+
+export async function createAccount(email: string, password: string) {
+    const user = await createUserWithEmailAndPassword(auth, email, password);
+    return await setUserData(user);
+}
+
+export async function signInWithEmail(email: string, password: string) {
+    const user = await createUserWithEmailAndPassword(auth, email, password);
     return await getUserData(user.user);
 }
 
