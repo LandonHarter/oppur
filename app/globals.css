@@ -136,6 +136,7 @@
 
 body {
   background-color: var(--bg500);
+  overflow-x: hidden;
 }
 
 nav {

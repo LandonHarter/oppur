@@ -18,6 +18,7 @@ export interface Job {
     company: string;
     skills: string[];
     remote: boolean;
+    logo: string;
 
 }
 

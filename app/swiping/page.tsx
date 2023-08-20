@@ -1,8 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import { getJobs } from "@/backend/job";
+import { Job } from "@/backend/types";
+import Link from "next/link";
+import TinderCard from "react-tinder-card";
 
 const companies = [
   {
@@ -36,6 +40,14 @@ const companies = [
 ];
 
 export default function Swiping() {
+  const [jobs, setJobs] = React.useState<Job[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      setJobs(await getJobs());
+    })();
+  })
+
   return (
     <div className={styles.mobile}>
       <Image
@@ -46,27 +58,29 @@ export default function Swiping() {
         className={styles.background}
       />
       <header>
-        <nav>
-          <Image
-            src="/oppur-logo.png"
-            alt="Logo"
-            width={150}
-            height={30}
-            className={styles.logo}
-          />
+        <nav className={styles.header_nav}>
+          <Link href='/'>
+            <Image
+              src="/oppur-logo.png"
+              alt="Logo"
+              width={150}
+              height={30}
+              className={styles.logo}
+            />
+          </Link>
           <Image
             src="/profile.png"
             alt="Logo"
             width={38}
             height={38}
-            className={styles.logo}
+            className={`${styles.logo} ${styles.avatar}`}
           />
         </nav>
       </header>
       <div className={styles.wrapper}>
         <div className={styles.card_wrapper}>
-          {companies.map((company, index) => (
-            <div className={styles.card} key={index}>
+          {jobs.map((company, index) => (
+            <TinderCard preventSwipe={['up', 'down']} className={styles.card} key={index}>
               <div className={styles.inner_wrapper}>
                 <div className={styles.company_container}>
                   <div className={styles.company}>
@@ -104,7 +118,7 @@ export default function Swiping() {
                     color: "#212840",
                   }}
                 >
-                  {company.position}
+                  {company.name}
                 </h2>
                 <div className={styles.more_info}>
                   <p style={{ fontSize: "10px" }} id={styles.grey}>
@@ -123,7 +137,7 @@ export default function Swiping() {
                       gap: "8px",
                     }}
                   >
-                    {company.languages.map((language, langIndex) => (
+                    {company.skills.map((language, langIndex) => (
                       <div className={styles.language} key={langIndex}>
                         <p id={styles.black}>{language}</p>
                       </div>
@@ -131,22 +145,8 @@ export default function Swiping() {
                   </div>
                 </div>
               </div>
-            </div>
+            </TinderCard>
           ))}
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <button className={styles.pass}>
-            <p>⟵ Pass</p>
-          </button>
-          <button className={styles.like}>
-            <p>Like ⟶</p>
-          </button>
         </div>
       </div>
     </div>
