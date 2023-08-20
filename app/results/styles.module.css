@@ -37,11 +37,12 @@
 .card_wrapper {
   position: relative;
   height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .card {
-  position: absolute; /* Use absolute positioning */
-  top: 0; /* Position cards at the top */
   height: fit-content;
   width: fit-content;
   min-width: 20px;
@@ -54,6 +55,11 @@
   justify-content: center;
   position: relative;
   z-index: 10;
+
+  &.not-interested {
+    background-color: #ababab;
+    filter: grayscale(100%) saturate(0);
+  }
 }
 
 /* Add a specific z-index for each card */
@@ -95,6 +101,22 @@
 .company_title {
   display: flex;
   flex-direction: column;
+  /* Default colors */
+  color: #5a5c65; /* Company name color */
+}
+
+.company_type {
+  font-size: 10px;
+  color: #646464; /* Company type color */
+}
+
+/* If company is not interested */
+.company_title.not-interested {
+  color: #5A5C65;
+}
+
+.company_type.not-interested {
+  color: #5A5C65;
 }
 
 .more_info {
@@ -232,10 +254,6 @@
     1;
   border-width: 0.5px;
   border-style: solid;
-}
-
-.desaturated_logo {
-  filter: saturate(0);
 }
 
 @media only screen and (max-width: 600px) {

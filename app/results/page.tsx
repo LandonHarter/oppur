@@ -13,6 +13,7 @@ const companies = [
       "We are seeking a talented and motivated Front-End Web Developer with strong expertise in...",
     languages: ["HTML", "CSS", "React.js"],
     logo: "/envato_elements.png", // Logo URL
+    company_interested: true,
   },
   {
     name: "TechCo Solutions",
@@ -22,15 +23,7 @@ const companies = [
       "Join our dynamic startup team as a Full Stack Developer and help us build amazing products.",
     languages: ["JS", "Node.js", "MongoDB"],
     logo: "/techco_solutions.png", // Logo URL
-  },
-  {
-    name: "GlobalTech",
-    type: "Enterprise",
-    position: "Software Engineer",
-    description:
-      "As a Software Engineer, you will work on cutting-edge projects that impact industries worldwide.",
-    languages: ["Java", "Spring", "Angular"],
-    logo: "/globaltech_innovations.png", // Logo URL
+    company_interested: false,
   },
   // Add more company cards
 ];
@@ -65,70 +58,36 @@ export default function Swiping() {
       </header>
       <div className={styles.wrapper}>
         <div className={styles.card_wrapper}>
-          {companies.map((company, index) => (
-            <div className={styles.card} key={index}>
+        {companies.map((company, index) => (
+            <div className={`${styles.card} ${!company.company_interested ? styles['not-interested'] : ''}`} key={index}>
               <div className={styles.inner_wrapper}>
                 <div className={styles.company_container}>
                   <div className={styles.company}>
                     <Image
                       src={company.logo}
-                      width={100}
-                      height={100}
+                      width={40}
+                      height={40}
                       alt={company.name}
                     />
                     <div className={styles.company_title}>
-                      <p
-                        style={{
-                          color: "#212840",
-                          fontFamily: "Inter Bold",
-                        }}
-                      >
-                        {company.name}
-                      </p>
-                      <p style={{ fontSize: "10px", color: "#ABABAB" }}>
-                        {company.type}
-                      </p>
+                      <p style={{ color: company.company_interested ? '#5a5c65' : '#ababab' }}>{company.name}</p>
                     </div>
                   </div>
-                  <Image
-                    src="/three_dots.svg"
-                    width={4}
-                    height={20}
-                    alt="Three Dots"
-                  />
-                </div>
-                <h2
-                  style={{
-                    fontSize: "30px",
-                    lineHeight: "40px",
-                    color: "#212840",
-                  }}
-                >
-                  {company.position}
-                </h2>
-                <div className={styles.more_info}>
-                  <p style={{ fontSize: "10px" }} id={styles.grey}>
-                    DESCRIPTION
-                  </p>
-                  <p id={styles.black}>{company.description}</p>
-                </div>
-                <div className={styles.more_info}>
-                  <p style={{ fontSize: "10px" }} id={styles.grey}>
-                    LANGUAGES
-                  </p>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      gap: "8px",
-                    }}
-                  >
-                    {company.languages.map((language, langIndex) => (
-                      <div className={styles.language} key={langIndex}>
-                        <p id={styles.black}>{language}</p>
-                      </div>
-                    ))}
-                  </div>
+                  {company.company_interested ? (
+                    <Image
+                      src="/checkmark.svg" // Path to checkmark SVG
+                      width={30}
+                      height={30}
+                      alt="Checkmark"
+                    />
+                  ) : (
+                    <Image
+                      src="/cross.svg" // Path to cross SVG
+                      width={30}
+                      height={30}
+                      alt="Cross"
+                    />
+                  )}
                 </div>
               </div>
             </div>
