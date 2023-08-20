@@ -138,6 +138,13 @@ body {
   background-color: var(--bg500);
 }
 
+nav {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  justify-content: space-between;
+}
+
 p {
   color: var(--text400);
   font-family: 'Inter Regular';
@@ -157,6 +164,7 @@ h2 {
   color: var(--text450);
   font-family: 'Inter Bold';
   font-size: 34.615px;
+  margin-left: -1.6px;
 }
 
 h3 {

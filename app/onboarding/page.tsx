@@ -12,11 +12,10 @@ import LoadingContext from "@/context/LoadingContext";
 export default function LoginPage() {
 
     let normal = '#0D0D0D';
-    const [bgColor, setBgColor] = useState(normal);
+    const [buttonColor, setButtonColor] = useState('#0D0D0D');
      const changeColor =()=>{
-        console.log('hello')
         let white = '#DBDBDB';
-        setBgColor(white);
+        setButtonColor(white);
       }
 
   const user = useContext(UserContext);
@@ -64,36 +63,36 @@ export default function LoginPage() {
                 gap: "8px",
               }}
             >
-              <button className={styles.skill} onClick={changeColor}>
+              <button className={styles.skill} onClick={changeColor} style={{backgroundColor:buttonColor}}>
                 <p style={{ fontSize: "15px", width: "fit-content" }}>HTML</p>
               </button>
-              <button className={styles.skill} onClick={changeColor}>
+              <button className={styles.skill} onClick={changeColor} style={{backgroundColor:buttonColor}}>
                 <p style={{ fontSize: "15px", width: "fit-content" }}>CSS</p>
               </button>
-              <button className={styles.skill} onClick={changeColor}>
+              <button className={styles.skill} onClick={changeColor} style={{backgroundColor:buttonColor}}>
                 <p style={{ fontSize: "15px", width: "fit-content" }}>JS</p>
               </button>
-              <button className={styles.skill} onClick={changeColor}>
+              <button className={styles.skill} onClick={changeColor} style={{backgroundColor:buttonColor}}>
                 <p style={{ fontSize: "15px", width: "fit-content" }}>Python</p>
               </button>
             </div>
             <div
               style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}
             >
-              <button className={styles.skill} onClick={changeColor}>
+              <button className={styles.skill} onClick={changeColor} style={{backgroundColor:buttonColor}}>
                 <p style={{ fontSize: "15px", width: "fit-content" }}>
                   Next.js
                 </p>
               </button>
-              <button className={styles.skill} onClick={changeColor}>
+              <button className={styles.skill} onClick={changeColor} style={{backgroundColor:buttonColor}}>
                 <p style={{ fontSize: "15px", width: "fit-content" }}>
                   Typescript
                 </p>
               </button>
-              <button className={styles.skill} onClick={changeColor}>
+              <button className={styles.skill} onClick={changeColor} style={{backgroundColor:buttonColor}}>
                 <p style={{ fontSize: "15px", width: "fit-content" }}>PHP</p>
               </button>
-              <button className={styles.skill} onClick={changeColor}>
+              <button className={styles.skill} onClick={changeColor} style={{backgroundColor:buttonColor}}>
                 <p style={{ fontSize: "15px", width: "fit-content" }}>C++</p>
               </button>
             </div>
