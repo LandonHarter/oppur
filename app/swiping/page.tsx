@@ -8,37 +8,6 @@ import { Job } from "@/backend/types";
 import Link from "next/link";
 import TinderCard from "react-tinder-card";
 
-const companies = [
-  {
-    name: "Envato Elements",
-    type: "Corporate",
-    position: "Front End Web Developer",
-    description:
-      "We are seeking a talented and motivated Front-End Web Developer with strong expertise in...",
-    languages: ["HTML", "CSS", "React.js"],
-    logo: "/envato_elements.png", // Logo URL
-  },
-  {
-    name: "TechCo Solutions",
-    type: "Startup",
-    position: "Full Stack Developer",
-    description:
-      "Join our dynamic startup team as a Full Stack Developer and help us build amazing products.",
-    languages: ["JS", "Node.js", "MongoDB"],
-    logo: "/techco_solutions.png", // Logo URL
-  },
-  {
-    name: "GlobalTech",
-    type: "Enterprise",
-    position: "Software Engineer",
-    description:
-      "As a Software Engineer, you will work on cutting-edge projects that impact industries worldwide.",
-    languages: ["Java", "Spring", "Angular"],
-    logo: "/globaltech_innovations.png", // Logo URL
-  },
-  // Add more company cards
-];
-
 export default function Swiping() {
   const [jobs, setJobs] = React.useState<Job[]>([]);
 
@@ -46,7 +15,7 @@ export default function Swiping() {
     (async () => {
       setJobs(await getJobs());
     })();
-  })
+  }, []);
 
   return (
     <div className={styles.mobile}>
