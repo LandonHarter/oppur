@@ -6,3 +6,22 @@ export interface User {
     uid: string;
 
 }
+
+export interface Job {
+
+    id: string;
+    name: string;
+    description: string;
+    type: JobType;
+    location: string;
+    salary: number;
+    company: string;
+
+}
+
+export enum JobType {
+
+    FullTime = 'Full Time',
+    PartTime = 'Part Time',
+
+}

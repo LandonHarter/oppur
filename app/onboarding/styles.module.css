@@ -98,6 +98,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .card .info {
@@ -121,14 +122,17 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border-image: linear-gradient(
-      to bottom right,
-      rgba(255, 255, 255, 0.64),
-      rgba(255, 255, 255, 0.1)
-    )
-    1;
-  border-width: 0.5px;
-  border-style: solid;
+  border: solid 2px var(--bg400);
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.skill p {
+  font-family: 'Inter Bold';
+}
+
+.skill_selected {
+  border: solid 2px transparent;
 }
 
 @media only screen and (max-width: 600px) {
