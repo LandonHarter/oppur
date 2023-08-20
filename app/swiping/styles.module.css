@@ -13,7 +13,6 @@
   display: none;
 }
 
-
 .background {
   width: 100vw;
   height: auto;
@@ -30,6 +29,9 @@
   -ms-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .card {
@@ -39,7 +41,7 @@
   min-height: 20px;
   max-width: 300px;
   border-radius: 12px;
-  background-color: #DBDBDB;
+  background-color: #dbdbdb;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,6 +81,38 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.language {
+  display: flex;
+  padding: 8px 12px;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  background: #f7f6f6;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.pass {
+  display: inline-flex;
+  padding: 8px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: #f66;
+}
+
+.like {
+  display: inline-flex;
+  padding: 8px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: #65ab59;
 }
 
 #black {
@@ -133,7 +167,7 @@
 }
 
 .flex .input-box {
-  background: #E0E0E0;
+  background: #e0e0e0;
   border-radius: 12px;
 }
 
@@ -148,17 +182,16 @@
 .flex .sign-up {
   border-width: 0px;
   border-radius: 13px;
-  background: #4A83FF;
-  box-shadow: 4px 4px 12px 0px rgba(0, 51, 19, 0.20);
+  background: #4a83ff;
+  box-shadow: 4px 4px 12px 0px rgba(0, 51, 19, 0.2);
 }
 
 .sign-up p {
-  color: #F5F5F5;
-  font-family: 'Inter Bold';
+  color: #f5f5f5;
+  font-family: "Inter Bold";
   margin-top: 16px;
   margin-bottom: 16px;
 }
-
 
 .provider_button p {
   color: var(--text550);
