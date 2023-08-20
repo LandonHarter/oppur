@@ -34,7 +34,14 @@
   gap: 24px;
 }
 
+.card_wrapper {
+  position: relative;
+  height: fit-content;
+}
+
 .card {
+  position: absolute; /* Use absolute positioning */
+  top: 0; /* Position cards at the top */
   height: fit-content;
   width: fit-content;
   min-width: 20px;
@@ -47,6 +54,19 @@
   justify-content: center;
   position: relative;
   z-index: 10;
+}
+
+/* Add a specific z-index for each card */
+.card:nth-child(1) {
+  z-index: 30; /* Highest z-index for the top card */
+}
+
+.card:nth-child(2) {
+  z-index: 20;
+}
+
+.card:nth-child(3) {
+  z-index: 10; /* Lowest z-index for the bottom card */
 }
 
 .inner_wrapper {
