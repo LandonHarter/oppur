@@ -3,6 +3,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import Link from "next/link"
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -65,6 +66,7 @@ export default function Swiping() {
       />
       <header>
         <nav>
+          <Link href='/'>
           <Image
             src="/oppur-logo.png"
             alt="Logo"
@@ -72,6 +74,8 @@ export default function Swiping() {
             height={30}
             className={styles.logo}
           />
+          </Link>
+          
           <Image
             src="/profile.png"
             alt="Logo"
