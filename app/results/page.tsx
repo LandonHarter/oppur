@@ -45,7 +45,7 @@ const companies = [
 ];
 
 export default function Swiping() {
-  const handleCopyEmail = (email:string) => {
+  const handleCopyEmail = (email: string) => {
     navigator.clipboard
       .writeText(email)
       .then(() => {
@@ -67,15 +67,15 @@ export default function Swiping() {
       <header>
         <nav>
           <Link href='/'>
-          <Image
-            src="/oppur-logo.png"
-            alt="Logo"
-            width={150}
-            height={30}
-            className={styles.logo}
-          />
+            <Image
+              src="/oppur-logo.png"
+              alt="Logo"
+              width={150}
+              height={30}
+              className={styles.logo}
+            />
           </Link>
-          
+
           <Image
             src="/profile.png"
             alt="Logo"
@@ -85,18 +85,18 @@ export default function Swiping() {
           />
         </nav>
       </header>
-      <div className={styles.wrapper} style={{alignItems:'center'}}>
-        <p style={{color:'#DBDBDB', marginBottom:'-15px'}}>hint: click to copy email</p>
+      <div className={styles.wrapper} style={{ alignItems: 'center' }}>
+        <p style={{ color: '#DBDBDB', marginBottom: '-15px' }}>hint: click to copy email</p>
         <div className={styles.card_wrapper}>
           {companies.map((company, index) => (
             <div
               className={styles.copyEmailButton}
               onClick={() => handleCopyEmail(company.email)}
+              key={index}
             >
               <div
-                className={`${styles.card} ${
-                  !company.company_interested ? styles["not-interested"] : ""
-                }`}
+                className={`${styles.card} ${!company.company_interested ? styles["not-interested"] : ""
+                  }`}
                 key={index}
               >
                 <div className={styles.inner_wrapper}>
