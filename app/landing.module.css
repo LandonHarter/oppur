@@ -11,7 +11,7 @@
   display: none;
 }
 
-nav .nav {
+.nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -53,25 +53,25 @@ nav .nav {
   text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.hamburger.is-active:before {
+.hamburger.is_active:before {
   background-color: #dbdbdb;
   position: relative;
   transform: rotate(-45deg) translate(-5px, 6px);
   z-index: 99;
 }
 
-.hamburger.is-active:after {
+.hamburger.is_active:after {
   background-color: #dbdbdb;
   position: relative;
   transform: rotate(45deg) translate(-6px, -6px);
   z-index: 99;
 }
 
-.hamburger.is-active .bar {
+.hamburger.is_active .bar {
   opacity: 0;
 }
 
-.mobile-nav {
+.mobile_nav {
   position: fixed;
   top: 0;
   left: 100%;
@@ -79,37 +79,42 @@ nav .nav {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
   z-index: 98;
-  background-color: #f5f5f5;
+  background-color: var(--bg500);
   transition: 0.4s;
   z-index: 98;
 }
 
-.mobile-nav.is-active {
+.mobile_nav.is_active {
   left: 0;
 }
 
-.mobile-nav a {
+.mobile_nav a {
   font-family: "Inter Light";
   color: #323649;
   text-decoration: none;
   font-size: 3.5vh;
 }
 
-.mobile-nav .box {
+.mobile_nav .box {
   position: relative;
   padding-top: 5vh;
   padding-bottom: 5vh;
   width: 80vw;
   height: fit-content;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
   line-height: normal;
   text-decoration: none;
   border-radius: 12px;
-  background: #fff;
+  background: var(--bg550);
+  border: solid 4px var(--bg450);
   box-shadow: 7px 7px 29px 0px rgba(0, 40, 15, 0.08);
   z-index: 98;
 }

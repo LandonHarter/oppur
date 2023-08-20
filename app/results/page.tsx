@@ -4,8 +4,7 @@ import React from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import Link from "next/link"
-import { useRouter } from "next/router";
-import { useState } from "react";
+import RequireDesktop from "@/components/desktop";
 
 const companies = [
   {
@@ -44,7 +43,7 @@ const companies = [
   // Add more company cards
 ];
 
-export default function Swiping() {
+export default function Results() {
   const handleCopyEmail = (email: string) => {
     navigator.clipboard
       .writeText(email)
@@ -56,103 +55,106 @@ export default function Swiping() {
       });
   };
   return (
-    <div className={styles.mobile}>
-      <Image
-        src="/bg.png"
-        alt="background"
-        width={500}
-        height={300}
-        className={styles.background}
-      />
-      <header>
-        <nav>
-          <Link href='/'>
+    <>
+      <div className={styles.desktop}><RequireDesktop /></div>
+      <div className={styles.mobile}>
+        <Image
+          src="/bg.png"
+          alt="background"
+          width={500}
+          height={300}
+          className={styles.background}
+        />
+        <header>
+          <nav>
+            <Link href='/'>
+              <Image
+                src="/oppur-logo.png"
+                alt="Logo"
+                width={150}
+                height={30}
+                className={styles.logo}
+              />
+            </Link>
+
             <Image
-              src="/oppur-logo.png"
+              src="/profile.png"
               alt="Logo"
-              width={150}
-              height={30}
+              width={38}
+              height={38}
               className={styles.logo}
             />
-          </Link>
-
-          <Image
-            src="/profile.png"
-            alt="Logo"
-            width={38}
-            height={38}
-            className={styles.logo}
-          />
-        </nav>
-      </header>
-      <div className={styles.wrapper} style={{ alignItems: 'center' }}>
-        <p style={{ color: '#DBDBDB', marginBottom: '-15px' }}>hint: click to copy email</p>
-        <div className={styles.card_wrapper}>
-          {companies.map((company, index) => (
-            <div
-              className={styles.copyEmailButton}
-              onClick={() => handleCopyEmail(company.email)}
-              key={index}
-            >
+          </nav>
+        </header>
+        <div className={styles.wrapper} style={{ alignItems: 'center' }}>
+          <p style={{ color: '#DBDBDB', marginBottom: '-15px' }}>hint: click to copy email</p>
+          <div className={styles.card_wrapper}>
+            {companies.map((company, index) => (
               <div
-                className={`${styles.card} ${!company.company_interested ? styles["not-interested"] : ""
-                  }`}
+                className={styles.copyEmailButton}
+                onClick={() => handleCopyEmail(company.email)}
                 key={index}
               >
-                <div className={styles.inner_wrapper}>
-                  <div className={styles.company_container}>
-                    <div className={styles.company}>
-                      <Image
-                        src={company.logo}
-                        width={40}
-                        height={40}
-                        alt={company.name}
-                      />
-                      <div className={styles.company_title}>
-                        <p
-                          className={styles.company_title}
-                          style={{
-                            color: company.company_interested
-                              ? "#212840"
-                              : "#5A5C65",
-                          }}
-                        >
-                          {company.name}
-                        </p>
-                        <p
-                          className={styles.company_type}
-                          style={{
-                            color: company.company_interested
-                              ? "#212840"
-                              : "#5A5C65",
-                          }}
-                        >
-                          {company.type}
-                        </p>
+                <div
+                  className={`${styles.card} ${!company.company_interested ? styles["not-interested"] : ""
+                    }`}
+                  key={index}
+                >
+                  <div className={styles.inner_wrapper}>
+                    <div className={styles.company_container}>
+                      <div className={styles.company}>
+                        <Image
+                          src={company.logo}
+                          width={40}
+                          height={40}
+                          alt={company.name}
+                        />
+                        <div className={styles.company_title}>
+                          <p
+                            className={styles.company_title}
+                            style={{
+                              color: company.company_interested
+                                ? "#212840"
+                                : "#5A5C65",
+                            }}
+                          >
+                            {company.name}
+                          </p>
+                          <p
+                            className={styles.company_type}
+                            style={{
+                              color: company.company_interested
+                                ? "#212840"
+                                : "#5A5C65",
+                            }}
+                          >
+                            {company.type}
+                          </p>
+                        </div>
                       </div>
+                      {company.company_interested ? (
+                        <Image
+                          src="/checkmark.svg" // Path to checkmark SVG
+                          width={30}
+                          height={30}
+                          alt="Checkmark"
+                        />
+                      ) : (
+                        <Image
+                          src="/cross.svg" // Path to cross SVG
+                          width={30}
+                          height={30}
+                          alt="Cross"
+                        />
+                      )}
                     </div>
-                    {company.company_interested ? (
-                      <Image
-                        src="/checkmark.svg" // Path to checkmark SVG
-                        width={30}
-                        height={30}
-                        alt="Checkmark"
-                      />
-                    ) : (
-                      <Image
-                        src="/cross.svg" // Path to cross SVG
-                        width={30}
-                        height={30}
-                        alt="Cross"
-                      />
-                    )}
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

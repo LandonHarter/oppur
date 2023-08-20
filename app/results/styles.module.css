@@ -64,7 +64,8 @@
 
 /* Add a specific z-index for each card */
 .card:nth-child(1) {
-  z-index: 30; /* Highest z-index for the top card */
+  z-index: 30;
+  /* Highest z-index for the top card */
 }
 
 .card:nth-child(2) {
@@ -72,7 +73,8 @@
 }
 
 .card:nth-child(3) {
-  z-index: 10; /* Lowest z-index for the bottom card */
+  z-index: 10;
+  /* Lowest z-index for the bottom card */
 }
 
 .inner_wrapper {
@@ -103,12 +105,14 @@
   display: flex;
   flex-direction: column;
   /* Default colors */
-  color: #5a5c65; /* Company name color */
+  color: #5a5c65;
+  /* Company name color */
 }
 
 .company_type {
   font-size: 10px;
-  color: #646464; /* Company type color */
+  color: #646464;
+  /* Company type color */
 }
 
 .more_info {
@@ -238,18 +242,14 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border-image: linear-gradient(
-      to bottom right,
+  border-image: linear-gradient(to bottom right,
       rgba(255, 255, 255, 0.64),
-      rgba(255, 255, 255, 0.1)
-    )
-    1;
+      rgba(255, 255, 255, 0.1)) 1;
   border-width: 0.5px;
   border-style: solid;
 }
 
-@media only screen and (max-width: 600px) {
-  /*
+@media only screen and (min-width: 600px) {
   .mobile {
     display: none;
   }
@@ -257,5 +257,4 @@
   .desktop {
     display: block;
   }
-  */
 }
