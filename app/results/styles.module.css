@@ -99,6 +99,7 @@
 }
 
 .company_title {
+  font-family: 'Inter Bold';
   display: flex;
   flex-direction: column;
   /* Default colors */
@@ -108,15 +109,6 @@
 .company_type {
   font-size: 10px;
   color: #646464; /* Company type color */
-}
-
-/* If company is not interested */
-.company_title.not-interested {
-  color: #5A5C65;
-}
-
-.company_type.not-interested {
-  color: #5A5C65;
 }
 
 .more_info {

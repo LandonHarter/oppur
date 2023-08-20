@@ -70,7 +70,8 @@ export default function Swiping() {
                       alt={company.name}
                     />
                     <div className={styles.company_title}>
-                      <p style={{ color: company.company_interested ? '#5a5c65' : '#ababab' }}>{company.name}</p>
+                      <p className={styles.company_title} style={{ color: company.company_interested ? '#212840' : '#5A5C65' }}>{company.name}</p>
+                      <p className={styles.company_type} style={{ color: company.company_interested ? '#212840' : '#5A5C65' }}>{company.name}</p>
                     </div>
                   </div>
                   {company.company_interested ? (
