@@ -16,6 +16,8 @@ export interface Job {
     location: string;
     salary: number;
     company: string;
+    skills: string[];
+    remote: boolean;
 
 }
 
