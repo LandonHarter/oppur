@@ -29,8 +29,8 @@ export default function Results() {
 
       startLoading();
       const likedJobs = JSON.parse(jobsJson) as Job[];
-      const jobs = await recommendJobs(likedJobs);
-      setRecommendedCompanies(jobs);
+      //const jobs = await recommendJobs(likedJobs);
+      setRecommendedCompanies(likedJobs);
       stopLoading();
     })();
   }, []);
