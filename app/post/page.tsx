@@ -20,7 +20,7 @@ export default function PostPage() {
     const [skills, setSkills] = useState('');
     const [location, setLocation] = useState('');
     const [email, setEmail] = useState('');
-    const [type, setType] = useState('');
+    const [type, setType] = useState('Full Time');
     const [image, setImage] = useState<{
         blob: Blob | null,
         url: string

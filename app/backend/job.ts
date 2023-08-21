@@ -2,9 +2,9 @@ import { collection, getDocs, limit, query, setDoc, where, doc, QueryConstraint 
 import { Job, JobType } from "./types";
 import { firestore } from "./firebase";
 
-export async function getJobs(amount?: number, type?: JobType, salaryRange?: number[], ...queryParams: QueryConstraint[]): Promise<Job[]> {
+export async function getJobs(amount?: number, salaryRange?: number[], ...queryParams: QueryConstraint[]): Promise<Job[]> {
     const jobsRef = collection(firestore, "jobs");
-    const jobsQuery = query(jobsRef, limit(amount || 10), where("type", "==", type ? type.toString() : "Full Time"), where("salary", ">=", salaryRange ? salaryRange[0] : 0), where("salary", "<=", salaryRange ? salaryRange[1] : 1000000), ...queryParams);
+    const jobsQuery = query(jobsRef, limit(amount || 10), where("salary", ">=", salaryRange ? salaryRange[0] : 0), where("salary", "<=", salaryRange ? salaryRange[1] : 1000000), ...queryParams);
     const jobs = await getDocs(jobsQuery);
 
     const jobsList: Job[] = [];
