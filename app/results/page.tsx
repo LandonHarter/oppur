@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link"
 import RequireDesktop from "@/components/desktop";
 import UserContext from "@/context/UserContext";
-import { Job } from "@/backend/types";
+import { Job, JobType } from "@/backend/types";
 import LoadingContext from "@/context/LoadingContext";
 import JobsContext from "@/context/JobsContext";
 
@@ -79,6 +79,7 @@ export default function Results() {
               color: 'var(--text550)',
               textAlign: 'center',
               fontFamily: 'Inter Bold',
+              marginTop: 175
             }}>You have no recommended companies!</h1>
           </div>
         </div>
