@@ -65,10 +65,8 @@ export default function Swiping() {
           <div className={styles.card_wrapper}>
             {jobs.map((company, index) => (
               <TinderCard preventSwipe={['up', 'down']} onSwipe={(direction: string) => {
-                let newLikedJobs = [...likedJobs];
                 if (direction === 'right') {
-                  newLikedJobs.push(company);
-                  setLikedJobs(newLikedJobs);
+                  setLikedJobs((prev: Job[]) => [...prev, company]);
                 }
 
                 if (index === jobs.length - 1) {
