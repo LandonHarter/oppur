@@ -131,8 +131,7 @@ export default function Results() {
             {recommendedCompanies.map((company, index) => (
               <Link href={`mailto:${company.email}`} key={index}>
                 <div
-                  className={`${styles.card}
-                    }`}
+                  className={`${styles.card}`}
                   key={index}
                 >
                   <div className={styles.inner_wrapper}>

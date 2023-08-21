@@ -4,7 +4,7 @@ import React, { useEffect, useContext } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { getJobs } from "@/backend/job";
-import { Job } from "@/backend/types";
+import { Job, JobType } from "@/backend/types";
 import Link from "next/link";
 import TinderCard from "react-tinder-card";
 import UserContext from "@/context/UserContext";
@@ -21,10 +21,12 @@ export default function Swiping() {
   const router = useRouter();
   const [jobs, setJobs] = React.useState<Job[]>([]);
   const [loading, setLoading] = React.useState(true);
+  let currentSwiped = 0;
 
   useEffect(() => {
     (async () => {
-      setJobs(await getJobs(20));
+      const jobsArr = await getJobs(20);
+      setJobs(jobsArr);
       setLoading(false);
     })();
   }, []);
@@ -68,8 +70,9 @@ export default function Swiping() {
                 if (direction === 'right') {
                   setLikedJobs((prev: Job[]) => [...prev, company]);
                 }
+                currentSwiped++;
 
-                if (index === jobs.length - 1) {
+                if (currentSwiped === jobs.length) {
                   router.push('/results');
                 }
               }} className={styles.card} key={index}>
