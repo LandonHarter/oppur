@@ -124,6 +124,27 @@ export default function Home() {
           </div>
           <img src="/interning.jpg" width="100%" height="auto" className={styles.hero_image} />
         </section>
+        <section>
+          <h1 style={{
+            marginTop: 40,
+            fontFamily: '"Inter Bold"',
+            color: 'var(--text500)',
+            width: '90vw',
+            fontSize: '32px'
+          }}>Are you a company?</h1>
+          <Link href="/post">
+            <button style={{
+              marginTop: 20,
+              padding: '10px 20px',
+              borderRadius: '10px',
+              backgroundColor: 'var(--p500)',
+              color: 'white',
+              cursor: 'pointer',
+            }}>
+              Add a job listing
+            </button>
+          </Link>
+        </section>
         <div
           style={{
             marginTop: 60,

@@ -20,13 +20,15 @@ export default function RequireDesktop() {
                 marginTop: 40,
                 fontFamily: 'Inter Bold',
                 fontSize: '56px',
-                color: 'var(--text600)'
+                color: 'var(--text600)',
+                textAlign: 'center'
             }}>Oppur is not available on desktop yet.</h1>
             <p style={{
                 marginTop: 20,
                 fontFamily: 'Inter Regular',
                 fontSize: '24px',
-                color: 'var(--text600)'
+                color: 'var(--text600)',
+                textAlign: 'center'
             }}>Please shrink the window size down to a mobile phone to continue.</p>
         </div>
     )

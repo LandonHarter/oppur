@@ -1,0 +1,153 @@
+.mobile {
+    background-color: var(--bg500);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.desktop {
+    display: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.form {
+    width: 100vw;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input_group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input_label {
+    margin: 10px 0;
+    color: var(--text550);
+    font-size: 18px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-family: 'Inter Bold';
+}
+
+.input_field {
+    width: 90vw;
+    height: 40px;
+
+    padding: 10px;
+
+    background-color: var(--bg550);
+    border: solid 2px var(--bg450);
+    border-radius: 10px;
+
+    color: var(--text500);
+    transition: all 0.2s ease-in-out;
+}
+
+.input_field:focus {
+    outline: none;
+    border: solid 2px var(--bg350);
+}
+
+.input_field::placeholder {
+    color: var(--text600);
+}
+
+.post {
+    width: 90vw;
+    height: 40px;
+
+    background-color: var(--p550);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+    color: var(--text500);
+    font-size: 18px;
+    font-family: 'Inter Bold';
+    transition: all 0.2s ease-in-out;
+}
+
+.post:hover {
+    background-color: var(--p600);
+}
+
+.post:active {
+    transform: scale(0.95);
+}
+
+.type {
+    width: 90vw;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    outline: none;
+    border: solid 2px var(--bg450);
+
+    background-color: var(--bg550);
+    color: var(--text600);
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.image_upload {
+    width: 90vw;
+    height: 40px;
+
+    background-color: var(--bg550);
+    border: solid 2px var(--bg450);
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-left: 10px;
+
+    color: var(--text500);
+    font-size: 18px;
+    font-family: 'Inter Bold';
+    transition: all 0.2s ease-in-out;
+}
+
+.image_upload_content {
+    width: 80%;
+    overflow-x: hidden;
+}
+
+.image_upload_button {
+    width: 20%;
+    min-width: 100px;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--p550);
+    color: var(--text500);
+}
+
+@media only screen and (min-width: 600px) {
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
+}
