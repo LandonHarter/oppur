@@ -7,7 +7,6 @@ import Link from "next/link"
 import RequireDesktop from "@/components/desktop";
 import UserContext from "@/context/UserContext";
 import { Job } from "@/backend/types";
-import { recommendJobs } from "@/backend/job";
 import { useSearchParams } from "next/navigation";
 import LoadingContext from "@/context/LoadingContext";
 
