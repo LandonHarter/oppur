@@ -4,7 +4,7 @@ import { UserContextProvider, LoadingContextProvider } from './context/context';
 import './globals.css'
 
 export const metadata = basicMetadata({
-  title: 'Workage',
+  title: 'Oppur • Explore Internships',
   localPath: '/',
 });
 

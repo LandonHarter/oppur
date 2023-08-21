@@ -3,11 +3,7 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
     return [
         {
-            url: "https://workage.vercel.app/",
-            lastModified: new Date()
-        },
-        {
-            url: "https://workage.vercel.app/login",
+            url: "https://oppur.vercel.app/",
             lastModified: new Date()
         },
     ];
