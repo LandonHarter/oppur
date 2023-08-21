@@ -37,7 +37,7 @@ export default function LoginPage() {
                             <Image src="/log-in.svg" width={280} height={280} alt="Login" />
                             <div className={styles.topBottom}>
                                 <h2>Welcome Back.</h2>
-                                <p>Log in to Concussify!</p>
+                                <p>Log in to Oppur!</p>
                             </div>
                         </div>
                         <div className={styles.middle}>
