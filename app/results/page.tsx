@@ -129,7 +129,7 @@ export default function Results() {
         <div className={styles.wrapper} style={{ alignItems: 'center' }}>
           <div className={styles.card_wrapper}>
             {recommendedCompanies.map((company, index) => (
-              <Link href={`mailto:${company.email}`} key={index}>
+              <Link href={company.website} target="_blank" key={index}>
                 <div
                   className={`${styles.card}`}
                   key={index}
