@@ -31,9 +31,9 @@ export function LoadingContextProvider(
         setLoading(false);
     }
 
-    if (loading) return <Loading />;
     return (
         <LoadingContext.Provider value={{ startLoading, stopLoading }}>
+            {loading && <Loading />}
             {children}
         </LoadingContext.Provider>
     );
