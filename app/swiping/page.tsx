@@ -16,7 +16,6 @@ export default function Swiping() {
   const user = useContext(UserContext);
   const [jobs, setJobs] = React.useState<Job[]>([]);
   const [likedJobs, setLikedJobs] = React.useState<Job[]>([]);
-  const [swipes, setSwipes] = React.useState<number>(0);
   const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
@@ -62,12 +61,11 @@ export default function Swiping() {
           <div className={styles.card_wrapper}>
             {jobs.map((company, index) => (
               <TinderCard preventSwipe={['up', 'down']} onSwipe={(direction: string) => {
-                const newLikedJobs = [...likedJobs, company];
+                let newLikedJobs = [...likedJobs];
                 if (direction === 'right') {
+                  newLikedJobs.push(company);
                   setLikedJobs(newLikedJobs);
                 }
-
-                setSwipes(swipes + 1);
 
                 if (index === jobs.length - 1) {
                   window.location.href = `/results?likedJobs=${JSON.stringify(newLikedJobs)}`;
