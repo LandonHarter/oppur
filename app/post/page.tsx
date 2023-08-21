@@ -45,7 +45,7 @@ export default function PostPage() {
     }
 
     async function postJob() {
-        if (name === '' || company === '' || description === '' || salary === '' || skills === '' || location === '' || email === '' || image.url === 'No Image Uploaded') {
+        if (name === '' || company === '' || description === '' || salary === '' || skills === '' || location === '' || website === '' || image.url === 'No Image Uploaded') {
             alert('Please fill out all fields.');
             return;
         }
@@ -156,7 +156,7 @@ export default function PostPage() {
                         </select>
                     </div>
                     <div className={styles.input_group}>
-                        <label className={styles.input_label}>Contact Email</label>
+                        <label className={styles.input_label}>Website URL</label>
                         <input className={styles.input_field} placeholder="Ex. https://company.com" value={website} onChange={(e) => {
                             setWebsite(e.target.value);
                         }} />
