@@ -67,10 +67,9 @@ export default function Swiping() {
                   setLikedJobs(newLikedJobs);
                 }
 
-                const newSwipes = swipes + 1;
-                setSwipes(newSwipes);
+                setSwipes(swipes + 1);
 
-                if (newSwipes === jobs.length) {
+                if (index === jobs.length - 1) {
                   window.location.href = `/results?likedJobs=${JSON.stringify(newLikedJobs)}`;
                 }
               }} className={styles.card} key={index}>
