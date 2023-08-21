@@ -11,11 +11,15 @@ import UserContext from "@/context/UserContext";
 import RequireDesktop from "@/components/desktop";
 import LoadingContext from "@/context/LoadingContext";
 import Loading from "@/components/loading/loading";
+import { useRouter } from "next/navigation";
+import JobsContext from "@/context/JobsContext";
 
 export default function Swiping() {
   const user = useContext(UserContext);
+  const { likedJobs, setLikedJobs } = useContext(JobsContext);
+
+  const router = useRouter();
   const [jobs, setJobs] = React.useState<Job[]>([]);
-  const [likedJobs, setLikedJobs] = React.useState<Job[]>([]);
   const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
@@ -68,7 +72,7 @@ export default function Swiping() {
                 }
 
                 if (index === jobs.length - 1) {
-                  window.location.href = `/results?likedJobs=${JSON.stringify(newLikedJobs)}`;
+                  router.push('/results');
                 }
               }} className={styles.card} key={index}>
                 <div className={styles.inner_wrapper}>

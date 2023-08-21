@@ -7,27 +7,24 @@ import Link from "next/link"
 import RequireDesktop from "@/components/desktop";
 import UserContext from "@/context/UserContext";
 import { Job } from "@/backend/types";
-import { useSearchParams } from "next/navigation";
 import LoadingContext from "@/context/LoadingContext";
+import JobsContext from "@/context/JobsContext";
 
 export default function Results() {
   const user = useContext(UserContext);
+  const { likedJobs } = useContext(JobsContext);
   const { startLoading, stopLoading } = useContext(LoadingContext);
-  const searchParams = useSearchParams();
   const [recommendedCompanies, setRecommendedCompanies] = React.useState<Job[]>([]);
+  const [empty, setEmpty] = React.useState(false);
 
   useEffect(() => {
     (async () => {
-      const jobsJson = searchParams.get('likedJobs');
-      if (!jobsJson) {
-        window.location.href = '/';
+      if (likedJobs.length === 0) {
+        setEmpty(true);
         return;
       }
 
       startLoading();
-      console.log(JSON.parse(jobsJson) as Job[]);
-      const likedJobs = JSON.parse(jobsJson) as Job[];
-      //const jobs = await recommendJobs(likedJobs);
       setRecommendedCompanies(likedJobs);
       stopLoading();
     })();
@@ -35,6 +32,58 @@ export default function Results() {
 
   if (!user) {
     return <></>;
+  }
+  if (empty) {
+    return (
+      <>
+        <div className={styles.desktop}><RequireDesktop /></div>
+        <div className={styles.mobile}>
+          <Image
+            src="/bg.png"
+            alt="background"
+            width={500}
+            height={300}
+            className={styles.background}
+          />
+          <header>
+            <nav style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '80vw'
+            }}>
+              <Link href='/'>
+                <Image
+                  src="/oppur-logo.png"
+                  alt="Logo"
+                  width={150}
+                  height={30}
+                  className={styles.logo}
+                />
+              </Link>
+
+              <Image
+                src={user.profilePicture}
+                alt="Logo"
+                width={38}
+                height={38}
+                className={styles.logo}
+                style={{
+                  borderRadius: '100%',
+                  cursor: 'pointer'
+                }}
+              />
+            </nav>
+          </header>
+          <div className={styles.wrapper} style={{ alignItems: 'center' }}>
+            <h1 style={{
+              color: 'var(--text550)',
+              textAlign: 'center',
+              fontFamily: 'Inter Bold',
+            }}>You have no recommended companies!</h1>
+          </div>
+        </div>
+      </>
+    );
   }
   return (
     <>
