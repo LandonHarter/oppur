@@ -59,11 +59,13 @@
   min-height: 20px;
   max-width: 300px;
   border-radius: 12px;
-  background-color: #dbdbdb;
+  background-color: var(--bg550);
+  border: solid 4px var(--bg450);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
+  cursor: pointer;
 }
 
 /* Add a specific z-index for each card */

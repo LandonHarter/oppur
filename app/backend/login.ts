@@ -16,10 +16,10 @@ export async function signInWithGoogle() {
     const loginData = getAdditionalUserInfo(user);
 
     if (loginData?.isNewUser) {
-        return await setUserData(user);
+        return { user: await setUserData(user), isNew: true };
     }
 
-    return await getUserData(user.user);
+    return { user: await getUserData(user.user), isNew: false };
 }
 
 export async function createAccount(email: string, password: string) {

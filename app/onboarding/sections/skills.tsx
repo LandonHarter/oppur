@@ -112,7 +112,7 @@ export default function OnboardingSkills(props: { nextSection: Function }) {
                             })}
                         </div>
                         <div className={styles.card} onClick={() => {
-                            props.nextSection('');
+                            window.location.href = "/swiping";
                         }}>
                             <p className={styles.info}>Continue</p>
                         </div>

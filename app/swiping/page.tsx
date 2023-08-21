@@ -15,11 +15,13 @@ import Loading from "@/components/loading/loading";
 export default function Swiping() {
   const user = useContext(UserContext);
   const [jobs, setJobs] = React.useState<Job[]>([]);
+  const [likedJobs, setLikedJobs] = React.useState<Job[]>([]);
+  const [swipes, setSwipes] = React.useState<number>(0);
   const [loading, setLoading] = React.useState(true);
 
   useEffect(() => {
     (async () => {
-      setJobs(await getJobs());
+      setJobs(await getJobs(20));
       setLoading(false);
     })();
   }, []);
@@ -59,20 +61,32 @@ export default function Swiping() {
         <div className={styles.wrapper}>
           <div className={styles.card_wrapper}>
             {jobs.map((company, index) => (
-              <TinderCard preventSwipe={['up', 'down']} className={styles.card} key={index}>
+              <TinderCard preventSwipe={['up', 'down']} onSwipe={(direction: string) => {
+                const newLikedJobs = [...likedJobs, company];
+                if (direction === 'right') {
+                  setLikedJobs(newLikedJobs);
+                }
+
+                const newSwipes = swipes + 1;
+                setSwipes(newSwipes);
+
+                if (newSwipes === jobs.length) {
+                  window.location.href = `/results?likedJobs=${JSON.stringify(newLikedJobs)}`;
+                }
+              }} className={styles.card} key={index}>
                 <div className={styles.inner_wrapper}>
                   <div className={styles.company_container}>
                     <div className={styles.company}>
                       <Image
                         src={company.logo}
-                        width={100}
-                        height={100}
+                        width={60}
+                        height={60}
                         alt={company.name}
                       />
                       <div className={styles.company_title}>
                         <p
                           style={{
-                            color: "#212840",
+                            color: "var(--text500)",
                             fontFamily: "Inter Bold",
                           }}
                         >
@@ -83,37 +97,26 @@ export default function Swiping() {
                         </p>
                       </div>
                     </div>
-                    <Image
-                      src="/three_dots.svg"
-                      width={4}
-                      height={20}
-                      alt="Three Dots"
-                    />
                   </div>
-                  <h2
-                    style={{
-                      fontSize: "30px",
-                      lineHeight: "40px",
-                      color: "#212840",
-                    }}
-                  >
-                    {company.name}
-                  </h2>
                   <div className={styles.more_info}>
                     <p style={{ fontSize: "10px" }} id={styles.grey}>
                       DESCRIPTION
                     </p>
-                    <p id={styles.black}>{company.description}</p>
+                    <p id={styles.black} style={{
+                      color: 'var(--text500)',
+                    }}>{company.description}</p>
                   </div>
                   <div className={styles.more_info}>
                     <p style={{ fontSize: "10px" }} id={styles.grey}>
-                      LANGUAGES
+                      SKILLS
                     </p>
                     <div
                       style={{
                         display: "flex",
                         flexDirection: "row",
+                        flexWrap: "wrap",
                         gap: "8px",
+                        width: '90%'
                       }}
                     >
                       {company.skills.map((language, langIndex) => (

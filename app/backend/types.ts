@@ -19,6 +19,8 @@ export interface Job {
     skills: string[];
     remote: boolean;
     logo: string;
+    email: string;
+    website: string;
 
 }
 

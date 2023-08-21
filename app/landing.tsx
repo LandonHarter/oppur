@@ -92,12 +92,12 @@ export default function Home() {
                   fontSize: "15px",
                 }}
               >
-                Lorem ipsum dolor
+                Search for your future
               </span>{" "}
-              sit amet, consect adipiscing elit, sed do eiusmod tem
+              with a swipe of your finger
             </p>
             <div className={styles["buttons-wrapper"]}>
-              <Link href="/login" style={{ textDecoration: 'none' }}>
+              <Link href={user ? '/swiping' : '/login'} style={{ textDecoration: 'none' }}>
                 <p
                   className={styles["sign-up-button"]}
                   style={{

@@ -46,11 +46,16 @@ export default function LoginPage() {
                                     className={styles.card}
                                     onClick={async () => {
                                         startLoading();
-                                        const user = await signInWithGoogle();
-                                        if (user) {
-                                            window.location.href = '/';
-                                        } else {
+                                        const userData = await signInWithGoogle();
+                                        if (!userData) {
                                             stopLoading();
+                                            return;
+                                        }
+
+                                        if (!userData.isNew) {
+                                            window.location.href = '/';
+                                        } else if (userData.isNew) {
+                                            window.location.href = '/onboarding';
                                         }
                                     }}
                                 >

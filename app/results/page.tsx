@@ -1,59 +1,43 @@
 "use client";
 
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import Link from "next/link"
 import RequireDesktop from "@/components/desktop";
-
-const companies = [
-  {
-    name: "Envato Elements",
-    type: "Corporate",
-    position: "Front End Web Developer",
-    description:
-      "We are seeking a talented and motivated Front-End Web Developer with strong expertise in...",
-    languages: ["HTML", "CSS", "React.js"],
-    logo: "/envato_elements.png", // Logo URL
-    email: "hello@envato.com",
-    company_interested: true,
-  },
-  {
-    name: "TechCo Solutions",
-    type: "Startup",
-    position: "Full Stack Developer",
-    description:
-      "Join our dynamic startup team as a Full Stack Developer and help us build amazing products.",
-    languages: ["JS", "Node.js", "MongoDB"],
-    logo: "/techco_solutions.png", // Logo URL
-    email: "hello@tech.co",
-    company_interested: false,
-  },
-  {
-    name: "Revlo Corp",
-    type: "Startup",
-    position: "Full Stack Developer",
-    description:
-      "Join our dynamic startup team as a Full Stack Developer and help us build amazing products.",
-    languages: ["JS", "Node.js", "MongoDB"],
-    logo: "/revlo.png", // Logo URL
-    email: "info@revlo.com",
-    company_interested: false,
-  },
-  // Add more company cards
-];
+import UserContext from "@/context/UserContext";
+import { Job } from "@/backend/types";
+import { recommendJobs } from "@/backend/job";
+import { useSearchParams } from "next/navigation";
+import LoadingContext from "@/context/LoadingContext";
 
 export default function Results() {
-  const handleCopyEmail = (email: string) => {
-    navigator.clipboard
-      .writeText(email)
-      .then(() => {
-        console.log("Email copied to clipboard:", email);
-      })
-      .catch((error) => {
-        console.error("Error copying email:", error);
-      });
-  };
+  const user = useContext(UserContext);
+  const { startLoading, stopLoading } = useContext(LoadingContext);
+  const searchParams = useSearchParams();
+  const [recommendedCompanies, setRecommendedCompanies] = React.useState<Job[]>([]);
+
+  useEffect(() => {
+    if (!user) return;
+
+    (async () => {
+      const jobsJson = searchParams.get('likedJobs');
+      if (!jobsJson) {
+        window.location.href = '/';
+        return;
+      }
+
+      startLoading();
+      const likedJobs = JSON.parse(jobsJson) as Job[];
+      const jobs = await recommendJobs(likedJobs);
+      setRecommendedCompanies(jobs);
+      stopLoading();
+    })();
+  }, []);
+
+  if (!user) {
+    return <></>;
+  }
   return (
     <>
       <div className={styles.desktop}><RequireDesktop /></div>
@@ -66,7 +50,11 @@ export default function Results() {
           className={styles.background}
         />
         <header>
-          <nav>
+          <nav style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '80vw'
+          }}>
             <Link href='/'>
               <Image
                 src="/oppur-logo.png"
@@ -78,25 +66,24 @@ export default function Results() {
             </Link>
 
             <Image
-              src="/profile.png"
+              src={user.profilePicture}
               alt="Logo"
               width={38}
               height={38}
               className={styles.logo}
+              style={{
+                borderRadius: '100%',
+                cursor: 'pointer'
+              }}
             />
           </nav>
         </header>
         <div className={styles.wrapper} style={{ alignItems: 'center' }}>
-          <p style={{ color: '#DBDBDB', marginBottom: '-15px' }}>hint: click to copy email</p>
           <div className={styles.card_wrapper}>
-            {companies.map((company, index) => (
-              <div
-                className={styles.copyEmailButton}
-                onClick={() => handleCopyEmail(company.email)}
-                key={index}
-              >
+            {recommendedCompanies.map((company, index) => (
+              <Link href={`mailto:${company.email}`} key={index}>
                 <div
-                  className={`${styles.card} ${!company.company_interested ? styles["not-interested"] : ""
+                  className={`${styles.card}
                     }`}
                   key={index}
                 >
@@ -105,52 +92,27 @@ export default function Results() {
                       <div className={styles.company}>
                         <Image
                           src={company.logo}
-                          width={40}
-                          height={40}
+                          width={60}
+                          height={60}
                           alt={company.name}
                         />
                         <div className={styles.company_title}>
                           <p
                             className={styles.company_title}
-                            style={{
-                              color: company.company_interested
-                                ? "#212840"
-                                : "#5A5C65",
-                            }}
                           >
                             {company.name}
                           </p>
                           <p
                             className={styles.company_type}
-                            style={{
-                              color: company.company_interested
-                                ? "#212840"
-                                : "#5A5C65",
-                            }}
                           >
                             {company.type}
                           </p>
                         </div>
                       </div>
-                      {company.company_interested ? (
-                        <Image
-                          src="/checkmark.svg" // Path to checkmark SVG
-                          width={30}
-                          height={30}
-                          alt="Checkmark"
-                        />
-                      ) : (
-                        <Image
-                          src="/cross.svg" // Path to cross SVG
-                          width={30}
-                          height={30}
-                          alt="Cross"
-                        />
-                      )}
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

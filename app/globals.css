@@ -185,7 +185,3 @@ span {
 a {
   color: var(--p300);
 }
-
-a:hover {
-  text-decoration: underline;
-}

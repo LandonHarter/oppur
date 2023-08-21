@@ -45,21 +45,17 @@
 .card {
   height: fit-content;
   width: fit-content;
-  min-width: 20px;
-  min-height: 20px;
-  max-width: 300px;
+  max-height: 125px;
+  width: 90vw;
   border-radius: 12px;
-  background-color: #dbdbdb;
+  background-color: var(--bg550);
+  border: solid 4px var(--bg450);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 10;
-
-  &.not-interested {
-    background-color: #ababab;
-    filter: grayscale(100%) saturate(0);
-  }
+  cursor: pointer;
 }
 
 /* Add a specific z-index for each card */
@@ -105,13 +101,13 @@
   display: flex;
   flex-direction: column;
   /* Default colors */
-  color: #5a5c65;
+  color: var(--text600);
   /* Company name color */
 }
 
 .company_type {
   font-size: 10px;
-  color: #646464;
+  color: var(--text650);
   /* Company type color */
 }
 
