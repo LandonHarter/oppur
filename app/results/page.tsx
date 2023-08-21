@@ -18,8 +18,6 @@ export default function Results() {
   const [recommendedCompanies, setRecommendedCompanies] = React.useState<Job[]>([]);
 
   useEffect(() => {
-    if (!user) return;
-
     (async () => {
       const jobsJson = searchParams.get('likedJobs');
       if (!jobsJson) {
@@ -28,6 +26,7 @@ export default function Results() {
       }
 
       startLoading();
+      console.log(JSON.parse(jobsJson) as Job[]);
       const likedJobs = JSON.parse(jobsJson) as Job[];
       //const jobs = await recommendJobs(likedJobs);
       setRecommendedCompanies(likedJobs);
