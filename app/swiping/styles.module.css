@@ -56,7 +56,7 @@
   height: fit-content;
   width: fit-content;
   min-width: 20px;
-  min-height: 20px;
+  min-height: 400px;
   max-width: 300px;
   border-radius: 12px;
   background-color: var(--bg550);
