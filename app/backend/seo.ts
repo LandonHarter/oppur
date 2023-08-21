@@ -2,8 +2,8 @@ import { Metadata } from "next";
 
 export const basicMetadata = (options: { title?: string, description?: string, localPath?: string, keywords?: string[] }): Metadata => {
     return {
-        metadataBase: new URL('https://workage.vercel.app'),
-        title: options.title || 'Workage',
+        metadataBase: new URL('https://oppur.vercel.app'),
+        title: options.title || 'Oppur',
         description: options.description,
         authors: [
             {
@@ -13,9 +13,13 @@ export const basicMetadata = (options: { title?: string, description?: string, l
             {
                 name: "Kevin H",
                 url: 'https://github.com/random56428'
+            },
+            {
+                name: "Steve Yang",
+                url: 'https://steveyang.me'
             }
         ],
-        publisher: 'Workage',
+        publisher: 'oppur',
         robots: {
             index: true,
             follow: true,
@@ -23,16 +27,16 @@ export const basicMetadata = (options: { title?: string, description?: string, l
         keywords: options.keywords ? options.keywords.join(', ') : 'job, search, student',
         category: 'Jobs',
         classification: 'Jobs',
-        creator: 'Workage',
-        icons: 'https://workage.vercel.app/icon.png',
-        applicationName: 'Workage',
+        creator: 'oppur',
+        icons: 'https://oppur.vercel.app/icon.png',
+        applicationName: 'oppur',
         openGraph: {
             title: options.title,
             description: options.description,
-            url: `https://workage.vercel.app${options.localPath || ''}`,
+            url: `https://oppur.vercel.app${options.localPath || ''}`,
             type: 'website',
-            images: ['https://workage.vercel.app/icon.png'],
-            siteName: 'Workage',
+            images: ['https://oppur.vercel.app/icon.png'],
+            siteName: 'Oppur',
         },
     };
 };

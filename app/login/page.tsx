@@ -8,13 +8,15 @@ import UserContext from '@/context/UserContext';
 import { signInWithGoogle } from '@/backend/login';
 import LoadingContext from '@/context/LoadingContext';
 import RequireDesktop from '@/components/desktop';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
+    const router = useRouter();
     const user = useContext(UserContext);
     const { startLoading, stopLoading } = useContext(LoadingContext);
 
     if (user) {
-        window.location.href = '/';
+        router.push('/swiping');
         return;
     }
 
