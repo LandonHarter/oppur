@@ -19,7 +19,7 @@ export default function PostPage() {
     const [salary, setSalary] = useState('');
     const [skills, setSkills] = useState('');
     const [location, setLocation] = useState('');
-    const [email, setEmail] = useState('');
+    const [website, setWebsite] = useState('');
     const [type, setType] = useState('Full Time');
     const [image, setImage] = useState<{
         blob: Blob | null,
@@ -61,7 +61,7 @@ export default function PostPage() {
             skills: skills.split(','),
             location,
             remote: false,
-            email: email,
+            website,
             type,
             logo: image.url
         });
@@ -72,7 +72,7 @@ export default function PostPage() {
         setSalary('');
         setSkills('');
         setLocation('');
-        setEmail('');
+        setWebsite('');
         setType('');
         setImage({
             blob: null,
@@ -157,8 +157,8 @@ export default function PostPage() {
                     </div>
                     <div className={styles.input_group}>
                         <label className={styles.input_label}>Contact Email</label>
-                        <input className={styles.input_field} placeholder="Ex. apply@company.com" value={email} onChange={(e) => {
-                            setEmail(e.target.value);
+                        <input className={styles.input_field} placeholder="Ex. https://company.com" value={website} onChange={(e) => {
+                            setWebsite(e.target.value);
                         }} />
                     </div>
                     <div className={styles.input_group}>
