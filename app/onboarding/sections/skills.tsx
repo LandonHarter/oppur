@@ -63,7 +63,7 @@ export default function OnboardingSkills(props: { nextSection: Function }) {
     }
 
     return (
-        <div className={styles.mobile}>
+        <>
             <header>
                 <nav>
                     <a href="/">
@@ -119,6 +119,6 @@ export default function OnboardingSkills(props: { nextSection: Function }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

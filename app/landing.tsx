@@ -1,36 +1,41 @@
+'use client'
+
 import React, { useContext } from "react";
 import UserContext from "./context/UserContext";
 import styles from "./landing.module.css"; // Import your CSS module
 import Link from "next/link"; // Import Link component
 import { posix } from "path";
+import RequireDesktop from "./components/desktop";
 
 export default function Home() {
   const user = useContext(UserContext);
+  const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
 
   return (
     <>
-      <div className={styles.desktop}>hello</div>
+      <div className={styles.desktop}><RequireDesktop /></div>
       <div className={styles.mobile}>
-        <img style={{position:'absolute', top:0, left:0, width:'100vw', zIndex:'0'}} src='/hero-bg.png'/>
+        <img style={{ position: 'absolute', top: 0, left: 0, width: '100vw', zIndex: '0' }} src='/hero-bg.png' />
         <header>
-          <nav className="nav">
+          <nav className={styles.nav}>
             <Link href="/">
-            <img
-              src="/oppur-logo.png"
-              width="160px"
-              height="auto"
-              style={{position:'relative', zIndex: 100 }}
-            />
+              <img
+                src="/oppur-logo.png"
+                width="160px"
+                height="auto"
+                style={{ position: 'relative', zIndex: 100 }}
+              />
             </Link>
             <button
               id="al"
               aria-label="Hamburger Button"
               className={styles.hamburger}
+              onClick={() => setMobileNavOpen(!mobileNavOpen)}
             >
               <div className={styles.bar} />
             </button>
           </nav>
-          <nav className={styles["mobile-nav"]}>
+          <nav className={`${styles.mobile_nav} ${mobileNavOpen && styles.is_active}`}>
             <div className={styles.box}>
               <div
                 style={{
@@ -41,13 +46,13 @@ export default function Home() {
                   gap: "1vh",
                 }}
               >
-                <Link href="./" passHref>
+                <Link href="/" passHref>
                   <p style={{ fontFamily: '"Inter Bold"' }}>Home</p>
                 </Link>
-                <Link href="/signup" passHref>
-                  Sign Up
-                </Link>
-                <Link href="/login" passHref>
+                <Link href="/login" passHref style={{
+                  color: 'var(--text500)',
+                  marginTop: 20
+                }}>
                   Log In
                 </Link>
               </div>
@@ -55,7 +60,7 @@ export default function Home() {
           </nav>
         </header>
         <section className={styles.hero}>
-          <div className={styles["hero-text"]} style={{position:'relative'}}>
+          <div className={styles["hero-text"]} style={{ position: 'relative' }}>
             <div className={styles["hero-top"]}>
               <div
                 style={{
@@ -92,7 +97,7 @@ export default function Home() {
               sit amet, consect adipiscing elit, sed do eiusmod tem
             </p>
             <div className={styles["buttons-wrapper"]}>
-              <Link href="/signup">
+              <Link href="/login" style={{ textDecoration: 'none' }}>
                 <p
                   className={styles["sign-up-button"]}
                   style={{
@@ -101,10 +106,10 @@ export default function Home() {
                     textDecoration: "none",
                   }}
                 >
-                  Sign Up
+                  Get Started
                 </p>
               </Link>
-              <Link href="/login">
+              <Link href="/login" style={{ textDecoration: 'none' }}>
                 <p
                   style={{
                     fontFamily: '"Inter Bold"',
@@ -117,7 +122,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <img src="/interning.jpg" width="100%" height="auto" className={styles.hero_image}/>
+          <img src="/interning.jpg" width="100%" height="auto" className={styles.hero_image} />
         </section>
         <div
           style={{
@@ -125,7 +130,7 @@ export default function Home() {
             paddingBottom: 60,
             display: "flex",
             justifyContent: "space-between",
-            alignItems:'center'
+            alignItems: 'center'
           }}
         >
           <img src="/oppur-logo.png" width="117px" />
