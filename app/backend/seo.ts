@@ -28,14 +28,14 @@ export const basicMetadata = (options: { title?: string, description?: string, l
         category: 'Jobs',
         classification: 'Jobs',
         creator: 'oppur',
-        icons: 'https://oppur.vercel.app/icon.png',
+        icons: 'https://oppur.vercel.app/oppuricon.png',
         applicationName: 'oppur',
         openGraph: {
             title: options.title,
             description: options.description,
             url: `https://oppur.vercel.app${options.localPath || ''}`,
             type: 'website',
-            images: ['https://oppur.vercel.app/icon.png'],
+            images: ['https://oppur.vercel.app/oppuricon.png'],
             siteName: 'Oppur',
         },
     };
